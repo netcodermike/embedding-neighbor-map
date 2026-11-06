@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import * as c from '../src/core.js';
+test('identical docs are nearest; empty vectors safe',()=>{const v=c.vectors(['wave coast','wave coast','database']);assert.ok(Math.abs(c.cosine(v.values[0],v.values[1])-1)<1e-9);assert.equal(c.cosine(v.values[0],v.values[2]),0);assert.equal(c.neighbors(['a','a','b'])[0].matches[0].index,1);assert.equal(c.cosine([0],[0]),0)});
